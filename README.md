@@ -55,7 +55,9 @@ Try searching for:
 ```
 minecraft-skin-viewer
  ├ index.html
+ ├ BANNER.png
  └ README.md
+
 ```
 
 ---
