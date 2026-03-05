@@ -1,27 +1,32 @@
+from IPython.display import HTML
 
+html_content = """
 <!DOCTYPE html>
 <html>
 <head>
 <title>Minecraft Skin Viewer</title>
 
 <style>
+
 body{
-    font-family: Arial;
-    text-align:center;
-    background:#1b1b1b;
-    color:white;
-    margin-top:60px;
+background:#1b1b1b;
+color:white;
+font-family:Arial;
+text-align:center;
+margin-top:60px;
 }
 
 input{
-    padding:10px;
-    font-size:16px;
+padding:10px;
+font-size:16px;
 }
 
 img{
-    margin-top:30px;
-    height:300px;
+margin-top:30px;
+height:300px;
+image-rendering: pixelated;
 }
+
 </style>
 
 </head>
@@ -30,7 +35,11 @@ img{
 
 <h1>Minecraft Skin Viewer</h1>
 
-<input id="username" placeholder="Enter username" oninput="showSkin()">
+<input id="username" placeholder="Enter username">
+
+<br>
+
+<button onclick="showSkin()">Show Skin</button>
 
 <br>
 
@@ -40,11 +49,11 @@ img{
 
 function showSkin(){
 
-const username = document.getElementById("username").value;
+let username = document.getElementById("username").value
 
-const url = `https://crafatar.com/renders/body/${username}`;
+let url = "https://mc-heads.net/body/" + username
 
-document.getElementById("skin").src = url;
+document.getElementById("skin").src = url
 
 }
 
@@ -52,3 +61,6 @@ document.getElementById("skin").src = url;
 
 </body>
 </html>
+"""
+
+HTML(html_content)
