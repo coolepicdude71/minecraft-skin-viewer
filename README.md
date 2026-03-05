@@ -1,4 +1,4 @@
-# Minecraft Skin Viewer 🎮
+![Minecraft Skin Viewer Banner](BANNER.png)
 
 A simple web app that lets you type a Minecraft username and instantly see the player's skin.
 
