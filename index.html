@@ -4,59 +4,87 @@ html_content = """
 <!DOCTYPE html>
 <html>
 <head>
-<title>Minecraft Skin Viewer</title>
-
-<style>
-
-body{
-background:#1b1b1b;
-color:white;
-font-family:Arial;
-text-align:center;
-margin-top:60px;
-}
-
-input{
-padding:10px;
-font-size:16px;
-}
-
-img{
-margin-top:30px;
-height:300px;
-image-rendering: pixelated;
-}
-
-</style>
-
+  <title>Minecraft Skin Viewer - Random Generator</title>
+  <style>
+    body {
+      background: #1b1b1b;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 60px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 220px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 10px 5px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    img {
+      margin-top: 30px;
+      height: 300px;
+      image-rendering: pixelated;
+      border: 2px solid white;
+      border-radius: 10px;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Minecraft Skin Viewer</h1>
+<h1>Minecraft Skin Viewer - Random Generator</h1>
 
 <input id="username" placeholder="Enter username">
 
 <br>
 
 <button onclick="showSkin()">Show Skin</button>
+<button onclick="showRandomSkin()">Random Skin</button>
 
 <br>
 
-<img id="skin">
+<img id="skin" alt="Minecraft skin will appear here">
 
 <script>
+  const randomUsers = [
+    "Notch",
+    "Dream",
+    "Technoblade",
+    "jeb_",
+    "Dinnerbone",
+    "Herobrine",
+    "CaptainSparklez",
+    "StampyLongHead"
+  ];
 
-function showSkin(){
+  function showSkin() {
+    const username = document.getElementById("username").value.trim();
+    if (username === "") {
+      document.getElementById("skin").src = "";
+      return;
+    }
+    const url = "https://mc-heads.net/body/" + username;
+    document.getElementById("skin").src = url;
+  }
 
-let username = document.getElementById("username").value
-
-let url = "https://mc-heads.net/body/" + username
-
-document.getElementById("skin").src = url
-
-}
-
+  function showRandomSkin() {
+    const randomIndex = Math.floor(Math.random() * randomUsers.length);
+    const randomUser = randomUsers[randomIndex];
+    document.getElementById("username").value = randomUser;
+    const url = "https://mc-heads.net/body/" + randomUser;
+    document.getElementById("skin").src = url;
+  }
 </script>
 
 </body>
